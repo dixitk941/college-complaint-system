@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+          Change the password before you run the project.
+          XAMPP / WAMP usually uses user "root" and an empty password.
+          A normal MySQL install often uses root / root.
+        -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/college_cms?createDatabaseIfNotExist=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=Asia/Kolkata&amp;characterEncoding=UTF-8</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <!-- Quotes table and column names. MySQL 8 treats ROLE as a reserved word. -->
+        <property name="hibernate.globally_quoted_identifiers">true</property>
+        <!-- update creates missing tables and columns. Tables are not dropped. -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <!-- Required only if you call SessionFactory.getCurrentSession(). -->
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.connection.pool_size">10</property>
+    </session-factory>
+</hibernate-configuration>
